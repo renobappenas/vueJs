@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Source : https://jsfiddle.net/boilerplate/vue -->
+    <div id="anu">
+        <h2>Todos:</h2>
+        <ol>
+          <li v-for="todo in todos">
+            <label>
+              <input type="checkbox"
+                v-on:change="toggle(todo)"
+                v-bind:checked="todo.done">
+      
+              <del v-if="todo.done">
+                {{ todo.text }}
+              </del>
+              <span v-else>
+                {{ todo.text }}
+              </span>
+            </label>
+          </li>
+        </ol>
+      </div>
+</body>
+</html>
