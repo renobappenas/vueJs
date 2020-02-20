@@ -184,6 +184,25 @@
                 .alt modifier ini akan bereaksi ketika keyboard Alt ditekan.
                 .shift modifier ini akan bereaksi ketika keyboard Shift ditekan.
                 dsb.
+    
+    V-bind
+        Directive ini berfungsi untuk mem-binding atribut HTML atau komponen agar nilainya terupdate secara
+        reactive sesuai dengan datanya, kebalikan dari v-on.
+        Contoh:
+        <div id="app">
+            <img v-bind:src="imageSrc">
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                imageSrc: 'logo-vue.png',
+                }
+            })
+            setTimeout(()=>{
+            vm.imageSrc = 'flowers.jpg'
+            },3000);
+        </script>
       
 CONTOH KASUS REACITVE PADA FORM
      
