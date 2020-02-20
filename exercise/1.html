@@ -7,12 +7,11 @@
 </head>
 
 <body>
-
+<!--   method watch    -->
     <div id="app">
         <h1>{{ message }}</h1>
         <!-- <p>{{ teks }}</p> -->
     </div>
-
 
     <script type="text/javascript">
         var vm = new Vue({
@@ -35,8 +34,47 @@
         })
         vm.message = 'Selamat Datang!'
     </script>
+    
+<!-- Method Property -->
+    
+    Properti Methods digunakan untuk fungsi yang bisa dipanggil melalui suatu event.
+    Properti Computed digunakan sebagai variabel bayangan yang nilainya bergantung pada variabel data.
+    Properti Filters digunakan untuk memanipulasi tampilan dari suatu teks.
+    
+    <div id="AllProperty">
+        <!-- filters -->
+        <h1>Filters: {{ message | upper }}</h1>
+        <!-- methods -->
+        <h1>Methods: {{ upper(message) }}</h1>
+        <!-- computed -->
+        <h1>Computed: {{ messageUpperCase }}</h1>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#AllProperty',
+            data: {
+                message: 'Hello world!',
+            },
+            filters: {
+                upper(text) {
+                    return text.toUpperCase()
+                }
+            },
+            methods: {
+                upper(text) {
+                    return text.toUpperCase()
+                }
+            },
+            computed: {
+                messageUpperCase() {
+                    return this.message.toUpperCase()
+                }
+            }
+        })
+    </script>
  
-<!-- Test 2 -->
+<!-- Test 2 PROPERTY COMPUTED-->
     <div id="app2">
         {{ fullName }}
     </div>
@@ -60,6 +98,51 @@
     Vue tidak dianggap sebagai fungsi. Artinya kita tidak bisa memanggilnya this.fullName()
     melainkan this.fullName layaknya variabel. Jadi methods ini lebih tepat digunakan sebagai
     variabel yang nilainya berasal dari variabel lain.
+    
+    
+<!--   Test 4 PROPERTY FILTER   -->
+    <div id="upper">
+        <h1>{{ message | upper }}</h1>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#upper',
+            data: {
+                message: 'Hello world!',
+            },
+            filters: {
+                upper(text) {
+                    return text.toUpperCase()
+                }
+            }
+        })
+    </script>
+    
+    
+    <div id="app3">
+        <h1> {{ price | formatCurrency('USD') }} </h1>
+        <h1> {{ price | formatCurrency('IDR') }} </h1>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app3',
+            data: {
+                price: 1000000,
+            },
+            filters: {
+                formatCurrency(value, currency) {
+                    var formatter = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: currency,
+                        minimumFractionDigits: 2,
+                    });
+                    return formatter.format(value)
+                }
+            },
+        })
+    </script>
     
 </body>
 
