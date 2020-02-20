@@ -35,6 +35,32 @@
         })
         vm.message = 'Selamat Datang!'
     </script>
+ 
+<!-- Test 2 -->
+    <div id="app2">
+        {{ fullName }}
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el: '#app2',
+            data: {
+                firstName: 'Ahmad',
+                lastName: 'Soekarno'
+            },
+            computed: {
+                fullName: function () {
+                    return this.firstName + ' ' + this.lastName
+                }
+            }
+        })
+    </script>
+    
+    Catatan: Meskipun bentuknya fungsi namun fungsi pada computed tidak memiliki parameter dan oleh
+    Vue tidak dianggap sebagai fungsi. Artinya kita tidak bisa memanggilnya this.fullName()
+    melainkan this.fullName layaknya variabel. Jadi methods ini lebih tepat digunakan sebagai
+    variabel yang nilainya berasal dari variabel lain.
+    
 </body>
 
 </html>
