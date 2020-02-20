@@ -1,3 +1,5 @@
+// js nya belum dipanggil
+
 new Vue({
   el: '#app',
   data: {
