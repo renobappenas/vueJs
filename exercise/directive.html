@@ -136,6 +136,11 @@
             <a href="http://novereno.com/" v-on:click="link()">
                 novereno.com
             </a>
+        <!-- atau utk mencegah jump ke link, di html nya ditulis spt ini -->
+            </br>
+            <a href="http://novereno.com" v-on:click.prevent="alert('Go to link')">
+            Vuejs.org
+            </a>
         </div>
         <script>
             var vm = new Vue({
@@ -146,10 +151,39 @@
                     },
                     link() {
                         alert('Go to link')
+                        // untuk mencegah jump ke link tsb maka tulis code d bawah ini
+                        // event.preventDefault() 
                     }
                 }
             })
         </script>
+    
+            Kita bisa juga membatasi agar misalnya suatu button atau link hanya boleh diklik sekali saja.
+            Dengan menggunakan modifier once.
+            <button v-on:click.once="info('selamat datang')">
+                Informasi
+            </button>
+    
+        Selain directive v-on:click ada beberapa directive lain yang bisa kita gunakan, diantaranya:
+                v-on:mouseover ketika mouse berada di area elemen.
+                v-on:mouseenter ketika mouse masuk ke area elemen.
+                v-on:mouseout ketika mouse keluar dari area elemen.
+                v-on:mousedown sama dengan v-on:click.
+                v-on:keyup ketika keyboard up pada elemen (biasanya digunakan pada elemen input).
+                v-on:keydown ketika keyboard down pada elemen (biasanya digunakan pada elemen input).
+                v-on:submit ketika form di submit.
+    
+         Demikian juga untuk modifiernya juga bermacam macam.
+                .enter modifier ini akan bereaksi ketika keyboard Enter ditekan.
+                .tab modifier ini akan bereaksi ketika keyboard Tab ditekan.
+                .delete modifier ini akan bereaksi ketika keyboard Delete atau Backspace ditekan.
+                .esc modifier ini akan bereaksi ketika keyboard Escape ditekan.
+                .space modifier ini akan bereaksi ketika keyboard Spasi ditekan.
+                .native modifier ini akan listen native event pada elemen root dari komponen.
+                .ctrl modifier ini akan bereaksi ketika keyboard Ctrl ditekan.
+                .alt modifier ini akan bereaksi ketika keyboard Alt ditekan.
+                .shift modifier ini akan bereaksi ketika keyboard Shift ditekan.
+                dsb.
       
 CONTOH KASUS REACITVE PADA FORM
      
