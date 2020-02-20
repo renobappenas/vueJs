@@ -1,0 +1,18 @@
+<div id="app">
+        <!-- Input biasa -->
+        <input v-model="pesan_input" placeholder="edit me">
+        <p>Single Message: {{ pesan_input }}</p>
+        <!-- Input menggunakan textarea -->
+        <textarea v-model="pesan_textarea" placeholder="edit me"></textarea>
+        <p>Multiple Message:</p>
+        <p style="white-space: pre-line;">{{ pesan_textarea }}</p>
+        <!-- Menggunakan input modifier "lazy" -->
+        <input v-model.lazy="msg">
+        <p>Your Lazy msg: {{msg}}</p>
+        <!-- Menggunakan input modifier "number" -->
+        <input v-model.number="age" type="number">
+        <p>Your Age: {{age}}</p>
+        <!-- Menggunakan input modifier "trim" -->
+        <input v-model.trim="pesan">
+        <p>Your Pesan: {{pesan}}</p>
+    </div>
